@@ -20,6 +20,11 @@ const App = () => {
 
     
   }
+  const taskDelete=(index)=>{
+    const newTask=[...task];
+    newTask.splice(index,1)
+    setTask(newTask);
+  }
  
 
   return (
@@ -54,7 +59,7 @@ const App = () => {
       </form>
 <div className='  lg:w-1/2 p-10 lg:border-l-2 '>
 <h1 className='text-2xl font-bold'>Recent Notes </h1>
-  <div className='flex flex-wrap gap-4 mt-4  h-full overflow-auto items-start justify-start  '>
+  <div className='flex flex-wrap gap-4 mt-4  h-[90%] overflow-auto items-start justify-start  '>
         {task.map((elem,index)=>{
           return <div  key={index}className=" flex justify-between flex-col items-start relative h-52 w-40 rounded-xl  px-10 pt-10 pb-4 text-black bg-cover  bg-[url('https://static.vecteezy.com/system/resources/thumbnails/010/793/873/small/a-lined-note-paper-covered-with-transparent-tape-on-a-yellow-background-with-a-white-checkered-pattern-free-png.png')]">
             
@@ -62,7 +67,9 @@ const App = () => {
               <h1 className='leading-tight text-xl font-bold '>{elem.title}</h1>
             <p className='mt-4 leading-tight font-medium text-gray-700'> {elem.details}</p>
             </div>
-            <button className='w-full cursor-pointer active:scale-95 bg-pink-600 text-white py-1  rounded font-bold text-xs'>delete</button>
+            <button  onClick={()=>{
+              taskDelete(index)
+            }}className='w-full cursor-pointer active:scale-95 bg-pink-600 text-white py-1  rounded font-bold text-xs'>delete</button>
             
           </div>
         })
