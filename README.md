@@ -18,7 +18,7 @@ This project focuses on clean layout design, reusable components, and smooth use
 
 ## 📸 Preview  
 
-![Preview](./preview.png)  
+![Preview](./public/preview.png)  
 
 ---
 
